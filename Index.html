@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi niña ❤️</title>
+
+<style>
+body{
+    margin:0;
+    background:#b30000;
+    overflow:hidden;
+    font-family: Arial, sans-serif;
+    color:white;
+    text-align:center;
+}
+
+/* MENSAJE CENTRAL */
+.message{
+    position:relative;
+    max-width:700px;
+    margin:100px auto;
+    padding:20px;
+    font-size:18px;
+    line-height:1.6;
+    z-index:2;
+}
+
+/* SPIDERMAN ESQUINA */
+.spider{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:120px;
+    animation: sideMove 4s ease-in-out infinite;
+    z-index:3;
+}
+
+@keyframes sideMove{
+    0%{ transform: translateX(-20px); }
+    50%{ transform: translateX(20px); }
+    100%{ transform: translateX(-20px); }
+}
+
+/* PARTÍCULAS */
+.fall{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    animation: fall linear infinite;
+    z-index:1;
+}
+
+@keyframes fall{
+    to{
+        transform: translateY(110vh);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="message">
+<h2>Mi niña 💖</h2>
+<p>
+Hoy quiero recordarte algo que nunca deberías olvidar: eres una de las mejores cosas que me han pasado en la vida. Desde que llegaste, todo cambió para mejor. Trajiste calma, alegría y una sensación tan bonita que no sabría explicar con palabras.<br><br>
+
+Eres mi refugio, mi paz y, al mismo tiempo, la razón por la que mi corazón late con tanta fuerza. Me encanta cómo logras hacerme sonreír incluso en mis días más difíciles, cómo con solo mirarme puedes tranquilizarlo todo.<br><br>
+
+A veces pienso en lo afortunado que soy por tenerte, por poder compartir contigo mis sueños, mis risas y mis días. No hay distancia, ni tiempo, ni nada que pueda hacerme dejar de sentir lo que siento por ti.<br><br>
+
+Gracias por existir, por amarme, por hacerme sentir tan importante. Eres mi amor, mi inspiración y la persona que quiero cuidar y amar todos los días. 💖
+</p>
+</div>
+
+<img src="spiderman.png" class="spider">
+
+<script>
+function createFall(){
+    const element = document.createElement("div");
+    element.classList.add("fall");
+
+    const items = ["❤️","💙","🕷️"];
+    element.innerHTML = items[Math.floor(Math.random()*items.length)];
+
+    element.style.left = Math.random() * 100 + "vw";
+    element.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(element);
+
+    setTimeout(() => {
+        element.remove();
+    }, 6000);
+}
+
+setInterval(createFall, 300);
+</script>
+
+</body>
+</html>
